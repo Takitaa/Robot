@@ -33,7 +33,7 @@ async function main(tank) {
 		newDirection = (Math.atan2(getY, getX) * 180) / Math.PI;
 
 		lastPosition = [await tank.getX(), await tank.getY()];
-		//console.log(lastPosition);
+		console.log(lastPosition);
 
 		switch (tank) {
 			case 'bottom':
@@ -60,7 +60,12 @@ async function main(tank) {
 
 		// GO UP
 		while ((await tank.getY()) < 339) {
-			await tank.drive(90, 50);
+			await tank.drive(90, 70);
+
+			if (getX <= 880) {
+				await tank.drive(380, 50);
+				console.log('If is working');
+			}
 		}
 
 		// shoot
