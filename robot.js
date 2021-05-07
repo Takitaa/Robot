@@ -29,6 +29,7 @@ async function main(tank) {
 	let turningSpeed = 50;
 
 	let getDamage = await tank.getDamage();
+
 	let tankLife = 100;
 	let damageBorder = 10;
 	let damageBump = 5;
@@ -81,6 +82,14 @@ async function main(tank) {
 	// """""""""""""" MAIN LOOP """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 	while (true) {
+		if (getDamage >= 25) {
+			do {
+				await tank.drive(0, 0);
+				await tank.shoot(350, 700);
+				//await fireLeftOrRight(tank);
+			} while (tankLife >= 70);
+		}
+
 		do {
 			await tank.drive(0, 0);
 			await tank.shoot(350, 700);
@@ -170,7 +179,7 @@ async function main(tank) {
 		await fireLeftOrRight(tank);
 
 		// GO down
-		while ((await tank.getY()) > 100) {
+		while ((await tank.getY()) < 100) {
 			await tank.drive(270, 90);
 		}
 
