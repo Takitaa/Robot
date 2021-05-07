@@ -1,10 +1,14 @@
 //devB for tests!
+//console.log('you can test!');
 
 'use strict';
-//a change for git
 
 async function main(tank) {
-	// auxiliary functions
+	//****************VARIABLES**************************
+
+	//***************************************************
+
+	///////////////////////// auxiliary functions
 
 	async function fireLeftOrRight(tank) {
 		let dir = 0;
@@ -14,20 +18,25 @@ async function main(tank) {
 		await tank.shoot(dir, 700);
 	}
 
-	// main loop
+	/////////////////////////////////////////////
+
+	// """""""""""""" MAIN LOOP """"""""""""""""""""
 
 	while (true) {
-		// go up
+		// GO UP
 		while ((await tank.getY()) < 900) {
 			await tank.drive(90, 50);
 		}
+
 		// shoot
 		await tank.shoot(270, 700);
 		await fireLeftOrRight(tank);
-		// go down
+
+		// GO down
 		while ((await tank.getY()) > 100) {
 			await tank.drive(270, 50);
 		}
+
 		// shoot
 		await tank.shoot(90, 700);
 		await fireLeftOrRight(tank);
