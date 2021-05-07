@@ -6,8 +6,18 @@
 async function main(tank) {
 	//****************VARIABLES**************************
 	//let scanAngle = [30, 60, 90, 120]; //forEach possible to build? + `` literals
+	// let spinAround = (scan) = {
+	// }
+
+	//let driving = () => {if (Math.floor(Math.random() * 2) === 0) {
+	//horizontalVelocity = -horizontalVelocity}; WAS IN USE in BROKEN code
+
 	//	let randomAngle = ((Math.atan2(getY, getX) * 60) / Math.PI) * 2; // then changed to 92
 	//	let changeDirection = getX - getY
+
+	//initialPosition
+
+	let route;
 
 	let getX = await tank.getX();
 	let getY = await tank.getY();
@@ -144,3 +154,12 @@ async function main(tank) {
 		await stopToShoot();
 	} //end loop
 } //end MAIN
+
+// crazy
+// class MyTank extends TankHandler{
+// 	constructor(driver, tank, rotation){
+// 		this.rotation = rotation
+// 		console.log(this)
+// 	}
+// }
+//
