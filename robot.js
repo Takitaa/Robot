@@ -7,6 +7,7 @@ async function main(tank) {
 	//****************VARIABLES**************************
 	//let scanAngle = [30, 60, 90, 120]; //forEach possible to build? + `` literals
 	//	let randomAngle = ((Math.atan2(getY, getX) * 60) / Math.PI) * 2; // then changed to 92
+	//	let changeDirection = getX - getY
 
 	let getX = await tank.getX();
 	let getY = await tank.getY();
