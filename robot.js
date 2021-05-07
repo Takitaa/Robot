@@ -18,9 +18,10 @@ async function main(tank) {
 	let getSpeed = await tank.getSpeed();
 	let turningSpeed = 50;
 
+	let getDamage = await tank.getDamage();
+	console.log(getDamage);
+
 	let delay = 800;
-
-
 
 	const canvasX = 1340;
 	const canvasY = 1000;
@@ -49,21 +50,18 @@ async function main(tank) {
 		await tank.shoot(dir, 700);
 	}
 
+	// async function justShoot(tank){
+	// 	setInterval((tank) => {
+	// 		(await tank.shoot(270, 400));
+	// 	}, delay);
+	// }
 
-	async function justShoot(tank){
-		setInterval((tank) => {
-			await tank.shoot(270, 400);
-		}, delay);
-	}
-
-
-		async function stopToShoot(tank) {
+	async function stopToShoot(tank) {
 		while (getSpeed > turningSpeed) {
 			await tank.drive(0, 0);
 			//console.log('I stopped to turn');
 		}
 	}
-
 
 	/////////////////////////////////////////////
 
@@ -94,7 +92,7 @@ async function main(tank) {
 				}
 				break;
 
-				// case '4':
+			// case '4':
 			// 	if (getX < 70 && getY < 1000) {
 			// 		await tank.drive(30, 70);
 			// 	}
@@ -112,7 +110,6 @@ async function main(tank) {
 			// 	}
 			// 	break;
 
-
 			default:
 				await tank.drive(newDirection, 50);
 		}
@@ -127,8 +124,6 @@ async function main(tank) {
 			}
 		}
 
-
-
 		// shoot
 		await tank.shoot(270, 700);
 		await fireLeftOrRight(tank);
@@ -141,7 +136,6 @@ async function main(tank) {
 		// shoot
 		await tank.shoot(90, 700);
 		await fireLeftOrRight(tank);
-
 
 		await stopToShoot();
 	} //end loop
