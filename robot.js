@@ -19,24 +19,11 @@ async function main(tank) {
 		await tank.shoot(dir, 700);
 	}
 
-	// THIS WOULD BE GREAT FOR A BOTTOM BOUND SITUATION
-	// async function scanSpin(tank) {
-	// 	let i = 0;
-	// 	do {
-	// 		await tank.scan(30, 10);
-	// 		await tank.scan(60, 10);
-	// 		await tank.scan(90, 10);
-	// 		await tank.scan(120, 10);
-	// 	} while (i < 500);
-	// }
-
 	/////////////////////////////////////////////
 
 	// """""""""""""" MAIN LOOP """"""""""""""""""""
 
 	while (true) {
-		//await scanSpin(tank);
-
 		// GO UP
 		while ((await tank.getY()) < 900) {
 			await tank.drive(90, 50);
