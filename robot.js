@@ -63,7 +63,7 @@ async function main(tank) {
 			await tank.drive(90, 70);
 
 			if (getX <= 880) {
-				await tank.drive(380, 50);
+				await tank.drive(65, 50);
 				console.log('If is working');
 			}
 		}
