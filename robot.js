@@ -18,6 +18,18 @@ async function main(tank) {
 
 	let delay = 800;
 
+
+
+
+	// const borders = {
+	// 	borderTopXLeft= 90,
+	// 	borderTopXRight= 90,
+	// 	borderBottomXLeft = -900,
+	// 	borderBottomXLeft= 90,
+	// 	borderTopY = 10,
+	// 	borderBottomY = 840,
+	// };
+
 	//***************************************************
 
 	///////////////////////// auxiliary functions
