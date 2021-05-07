@@ -95,6 +95,19 @@ async function main(tank) {
 		lastPosition = [await tank.getX(), await tank.getY()];
 		console.log(lastPosition);
 
+		if (route < canvasX - 20 || route < canvasY - 20) {
+			await tank.drive(direction, 90);
+		}
+
+		await tank.scan(30, 10);
+		await tank.scan(60, 10);
+		await tank.scan(90, 10);
+		await tank.scan(100, 7);
+		await tank.scan(180, 10);
+		await tank.scan(220, 10);
+
+		await stopToTurn(tank);
+
 		switch (tank) {
 			case 'bottom':
 				if (getY < 300 && getX < 1000) {
