@@ -151,6 +151,12 @@ async function main(tank) {
 
 		// GO UP
 		while ((await tank.getY()) < 339) {
+			// >69 starts first and stops at border top
+
+			await tank.scan(120, 10);
+			await tank.scan(180, 10);
+			await tank.scan(320, 10);
+
 			await tank.drive(90, 70);
 
 			if (getX <= 880) {
@@ -190,4 +196,10 @@ async function main(tank) {
 // 		direction = driving - driving * 2;
 // 		return direction;
 // 	}
+// }
+
+// the borders plan...
+// if ((borders = true)) {
+// 	return changeDirection;
+// 	//console.log(changeDirection)
 // }
