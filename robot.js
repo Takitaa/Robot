@@ -74,6 +74,25 @@ async function main(tank) {
 				}
 				break;
 
+				// case '4':
+			// 	if (getX < 70 && getY < 1000) {
+			// 		await tank.drive(30, 70);
+			// 	}
+			// 	break;
+
+			// case '5':
+			// 	if (lastPosition < [100, 90]) {
+			// 		await tank.drive(randomAngle, 30);
+			// 	}
+			// 	break;
+
+			// case '6':
+			// 	if (lastPosition > [100, 90]) {
+			// 		await tank.drive(randomAngle, 90);
+			// 	}
+			// 	break;
+
+
 			default:
 				await tank.drive(newDirection, 50);
 		}
