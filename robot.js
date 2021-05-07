@@ -81,6 +81,14 @@ async function main(tank) {
 	// """""""""""""" MAIN LOOP """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 	while (true) {
+		do {
+			await tank.drive(0, 0);
+			await tank.shoot(350, 700);
+			await tank.shoot(300, 700);
+			await tank.shoot(400, 700);
+			await tank.shoot(350, 700);
+		} while (tankLife <= 70);
+
 		console.log(getDamage);
 		newDirection = (Math.atan2(getY, getX) * 180) / Math.PI;
 
