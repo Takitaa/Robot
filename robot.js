@@ -69,7 +69,7 @@ async function main(tank) {
 	// 	}, delay);
 	// }
 
-	async function stopToShoot(tank) {
+	async function stopToTurn(tank) {
 		while (getSpeed > turningSpeed) {
 			await tank.drive(0, 0);
 			//console.log('I stopped to turn');
@@ -78,7 +78,7 @@ async function main(tank) {
 
 	/////////////////////////////////////////////
 
-	// """""""""""""" MAIN LOOP """"""""""""""""""""
+	// """""""""""""" MAIN LOOP """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 	while (true) {
 		console.log(getDamage);
@@ -151,7 +151,7 @@ async function main(tank) {
 		await tank.shoot(90, 700);
 		await fireLeftOrRight(tank);
 
-		await stopToShoot();
+		await stopToTurn();
 	} //end loop
 } //end MAIN
 
@@ -163,3 +163,10 @@ async function main(tank) {
 // 	}
 // }
 //
+
+// async function bottomBorder(tank) {
+// 	if (centerVerticalY >= canvasHeight - 140) {
+// 		direction = driving - driving * 2;
+// 		return direction;
+// 	}
+// }
