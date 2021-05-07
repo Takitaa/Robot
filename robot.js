@@ -10,7 +10,7 @@ async function main(tank) {
 	let getX = await tank.getX();
 	let getY = await tank.getY();
 
-	let delay = 10000;
+	let lastPosition = 0;
 
 	//***************************************************
 
@@ -29,11 +29,11 @@ async function main(tank) {
 	// """""""""""""" MAIN LOOP """"""""""""""""""""
 
 	while (true) {
-		setInterval((tank) => {
-			console.log(getY);
-		}, delay);
-
 		//(Math.atan2(getY, getX) * 180) / Math.PI;
+
+		lastPosition = [await tank.getX(), await tank.getY()];
+		console.log(lastPosition);
+
 		// GO UP
 		while ((await tank.getY()) < 900) {
 			await tank.drive(90, 50);
