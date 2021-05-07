@@ -19,7 +19,10 @@ async function main(tank) {
 	let turningSpeed = 50;
 
 	let getDamage = await tank.getDamage();
-	console.log(getDamage);
+	let tankLife = 100;
+	let damageBorder = 10;
+	let damageBump = 5;
+	let damageShot = 25;
 
 	let delay = 800;
 
@@ -68,6 +71,7 @@ async function main(tank) {
 	// """""""""""""" MAIN LOOP """"""""""""""""""""
 
 	while (true) {
+		console.log(getDamage);
 		newDirection = (Math.atan2(getY, getX) * 180) / Math.PI;
 
 		lastPosition = [await tank.getX(), await tank.getY()];
