@@ -32,7 +32,29 @@ async function main(tank) {
 		//(Math.atan2(getY, getX) * 180) / Math.PI;
 
 		lastPosition = [await tank.getX(), await tank.getY()];
-		console.log(lastPosition);
+		//console.log(lastPosition);
+
+		switch (tank) {
+			case 'bottom':
+				if (getY < 300 && getX < 1000) {
+					await tank.drive(180, 50);
+				}
+				break;
+
+			case '2':
+				if (getX > 300 && getY < 1000) {
+					await tank.drive(180, 50);
+				}
+				break;
+
+			case '3':
+				if (getX < 100 && getY < 800) {
+					await tank.drive(180, 50);
+				}
+				break;
+			default:
+				break;
+		}
 
 		// GO UP
 		while ((await tank.getY()) < 900) {
