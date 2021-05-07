@@ -6,6 +6,7 @@
 async function main(tank) {
 	//****************VARIABLES**************************
 	//let scanAngle = [30, 60, 90, 120]; //forEach possible to build? + `` literals
+	//	let randomAngle = ((Math.atan2(getY, getX) * 60) / Math.PI) * 2; // then changed to 92
 
 	let getX = await tank.getX();
 	let getY = await tank.getY();
@@ -14,7 +15,7 @@ async function main(tank) {
 	let newDirection = 0; // currently not working
 
 	let getSpeed = await tank.getSpeed();
-	let shootingSpeed = 50;
+	let turningSpeed = 50;
 
 	let delay = 800;
 
@@ -56,8 +57,9 @@ async function main(tank) {
 
 
 		async function stopToShoot(tank) {
-		while (getSpeed > shootingSpeed) {
+		while (getSpeed > turningSpeed) {
 			await tank.drive(0, 0);
+			//console.log('I stopped to turn');
 		}
 	}
 
