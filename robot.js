@@ -7,6 +7,11 @@ async function main(tank) {
 	//****************VARIABLES**************************
 	//let scanAngle = [30, 60, 90, 120]; //forEach possible to build? + `` literals
 
+	let getX = await tank.getX();
+	let getY = await tank.getY();
+
+	let delay = 10000;
+
 	//***************************************************
 
 	///////////////////////// auxiliary functions
@@ -24,6 +29,10 @@ async function main(tank) {
 	// """""""""""""" MAIN LOOP """"""""""""""""""""
 
 	while (true) {
+		setInterval((tank) => {
+			console.log(getY);
+		}, delay);
+
 		//(Math.atan2(getY, getX) * 180) / Math.PI;
 		// GO UP
 		while ((await tank.getY()) < 900) {
