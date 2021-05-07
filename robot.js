@@ -59,7 +59,7 @@ async function main(tank) {
 		}
 
 		// GO UP
-		while ((await tank.getY()) > 339) {
+		while ((await tank.getY()) < 339) {
 			await tank.drive(90, 50);
 		}
 
