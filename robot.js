@@ -24,6 +24,7 @@ async function main(tank) {
 	// """""""""""""" MAIN LOOP """"""""""""""""""""
 
 	while (true) {
+		//(Math.atan2(getY, getX) * 180) / Math.PI;
 		// GO UP
 		while ((await tank.getY()) < 900) {
 			await tank.drive(90, 50);
