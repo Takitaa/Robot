@@ -11,6 +11,7 @@ async function main(tank) {
 	let getY = await tank.getY();
 
 	let lastPosition = 0;
+	let newDirection = 0;
 
 	//***************************************************
 
@@ -29,7 +30,7 @@ async function main(tank) {
 	// """""""""""""" MAIN LOOP """"""""""""""""""""
 
 	while (true) {
-		//(Math.atan2(getY, getX) * 180) / Math.PI;
+		newDirection = (Math.atan2(getY, getX) * 180) / Math.PI;
 
 		lastPosition = [await tank.getX(), await tank.getY()];
 		//console.log(lastPosition);
@@ -37,23 +38,24 @@ async function main(tank) {
 		switch (tank) {
 			case 'bottom':
 				if (getY < 300 && getX < 1000) {
-					await tank.drive(180, 50);
+					await tank.drive(90, 50);
 				}
 				break;
 
 			case '2':
-				if (getX > 300 && getY < 1000) {
+				if (getX > 300 || getY < 1000) {
 					await tank.drive(180, 50);
 				}
 				break;
 
 			case '3':
-				if (getX < 100 && getY < 800) {
+				if (getX > 300 || getY < 800) {
 					await tank.drive(180, 50);
 				}
 				break;
+
 			default:
-				break;
+				await tank.drive(newDirection, 50);
 		}
 
 		// GO UP
