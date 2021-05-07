@@ -20,6 +20,11 @@ async function main(tank) {
 
 
 
+	const canvasX = 1340;
+	const canvasY = 1000;
+
+	const canvasMiddleX = canvasX / 2;
+	const canvasMiddleY = canvasY / 2;
 
 	// const borders = {
 	// 	borderTopXLeft= 90,
