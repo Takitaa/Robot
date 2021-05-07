@@ -11,7 +11,9 @@ async function main(tank) {
 	let getY = await tank.getY();
 
 	let lastPosition = 0;
-	let newDirection = 0;
+	let newDirection = 0; // currently not working
+
+	let delay = 800;
 
 	//***************************************************
 
@@ -24,6 +26,14 @@ async function main(tank) {
 		}
 		await tank.shoot(dir, 700);
 	}
+
+
+	async function justShoot(tank){
+		setInterval((tank) => {
+			await tank.shoot(270, 400);
+		}, delay);
+	}
+
 
 	/////////////////////////////////////////////
 
@@ -64,9 +74,11 @@ async function main(tank) {
 
 			if (getX <= 880) {
 				await tank.drive(65, 50);
-				console.log('If is working');
+				//console.log('If is working');
 			}
 		}
+
+
 
 		// shoot
 		await tank.shoot(270, 700);
